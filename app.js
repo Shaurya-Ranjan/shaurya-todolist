@@ -136,6 +136,8 @@ app.get("/work", (req, res) => {
   res.render("list", { listTitle: "Work List", newListItems: workItems });
 });
 
-app.listen(3000, function () {
-  console.log("listening");
-});
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port);
